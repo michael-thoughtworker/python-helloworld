@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: python-helloworld
+  name: python-helloworld
+  namespace: sandbox
+spec:
+  ports:
+  - port: 4111
+    protocol: TCP
+    targetPort: 3111
+  selector:
+    app: python-helloworld
+  type: LoadBalancer

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: python-helloworld
+  name: python-helloworld
+  namespace: sandbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-helloworld
+  template:
+    metadata:
+      labels:
+        app: python-helloworld
+    spec:
+      containers:
+      - image: ligenchang/python-helloworld:latest
+        imagePullPolicy: IfNotPresent
+        name: python-helloworld
+        ports:
+        - containerPort: 3111
+        livenessProbe:
+          httpGet:
+            path: /status
+            port: 3111
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+      
