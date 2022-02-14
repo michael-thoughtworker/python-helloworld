@@ -1,4 +1,0 @@
-INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO:app:Main request successfull
-INFO:werkzeug:127.0.0.1 - - [07/Feb/2022 16:07:05] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [07/Feb/2022 16:07:05] "GET /favicon.ico HTTP/1.1" 404 -
