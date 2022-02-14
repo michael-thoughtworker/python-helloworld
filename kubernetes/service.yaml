@@ -7,9 +7,10 @@ metadata:
   namespace: sandbox
 spec:
   ports:
-  - port: 4111
+  - port: 3111
     protocol: TCP
     targetPort: 3111
+    nodePort: 30009
   selector:
     app: python-helloworld
   type: NodePort
