@@ -1,19 +1,35 @@
 # python-helloworld
-## Argo CD installation 
+## Github Actions
+### 1. Push anything to master branch and observe the job running in github actions, there are three examples under .github/woprkflows folder
+
+## Argo CD Setpup 
 ### 1. start virtual box vm with vagrant up
 ### 2. rke up
-### 3. export KUBECONFIG=./kube_config_cluster.yml
-### 4. deploy argo cd
+### 3. Copy ssh key to vagrant box
 ```
-# deploy ArgoCD
+ssh-keygen -t rsa -b 2048
+sudo ssh-copy-id -i ~/.ssh/id_rsa root@192.168.56.11
+```
+### 4. Setup KUBECONFIG environment so that so you don't need to include in kubectl command everytime
+```
+export KUBECONFIG=./kube_config_cluster.yml
+```
+### 5. deploy argo cd
+```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
-### 5. Create the NodePort service for ArgoCD server 
+### 6. Create the NodePort service for ArgoCD server 
 ```
 kubectl apply -f argocd/argocd_server_load_balance.yml
 ```
-### 6. Argoc CD login credentials: user name = admin. Please get be retrieved from following link:
+### 7. Argoc CD login credentials: user name = admin. Password can be retrieved from following command:
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
+### 8. Open https://192.168.56.11:30008 for gocd web UI
+### 9. Once logged into ArgoCD server, application can be created using command:
+```
+kubectl apply -f argocd/argo_python.yml
+```
+
