@@ -3,8 +3,14 @@
 ### 1. Push anything to master branch and observe the job running in github actions, there are three examples under .github/woprkflows folder
 
 ## Argo CD Setpup 
-### 1. start virtual box vm with vagrant up
-### 2. rke up
+### 1. start virtual box vm
+```
+vagrant up
+```
+### 2. start cluster
+```
+rke up
+```
 ### 3. Copy ssh key to vagrant box
 ```
 ssh-keygen -t rsa -b 2048
@@ -31,5 +37,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ### 9. Once logged into ArgoCD server, application can be created using command:
 ```
 kubectl apply -f argocd/argo_python.yml
+```
+### 10. Visit helloworld python app
+```
+http://192.168.56.11:30009/
 ```
 
