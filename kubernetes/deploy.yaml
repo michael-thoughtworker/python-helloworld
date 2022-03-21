@@ -14,7 +14,7 @@ metadata:
   name: python-helloworld
   namespace: sandbox
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: python-helloworld
