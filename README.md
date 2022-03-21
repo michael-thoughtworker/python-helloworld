@@ -1,6 +1,6 @@
 # python-helloworld repo for demo of cloud native CI/CD with github actions and argo cd
 ## Github Actions
-### 1. Push anything to master branch and observe the job running in github actions, there are three examples under .github/woprkflows folder
+### 1. Push anything to any branch and observe the job running in github actions, there are three examples under .github/woprkflows folder
 
 ## Argo CD Setup 
 ### 1. start virtual box vm
